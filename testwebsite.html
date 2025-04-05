@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportsmen's Bar and Grill - Wilton, ND</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Oswald', sans-serif;
+        }
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://img.restaurantguru.com/r125-Sportsman-exterior-2021-08.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+        }
+        .menu-card {
+            transition: all 0.3s ease;
+        }
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .hours-container {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://img.restaurantguru.com/cf8c-Sportsman-Wilton-interior.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #f59e0b;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .contact-info {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://img.restaurantguru.com/r8df-Sportsman-interior-2021-08.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .gallery-image {
+            transition: transform 0.3s ease;
+        }
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            background: linear-gradient(90deg, #d4af37 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+        }
+        .sticky-header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .hero {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 sticky-header">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-3xl font-bold logo">SPORTSMEN'S</h1>
+                <span class="ml-2 text-gray-600 font-semibold">BAR & GRILL</span>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="nav-link text-gray-800 hover:text-amber-500 font-medium">Home</a></li>
+                    <li><a href="#about" class="nav-link text-gray-800 hover:text-amber-500 font-medium">About</a></li>
+                    <li><a href="#menu" class="nav-link text-gray-800 hover:text-amber-500 font-medium">Menu</a></li>
+                    <li><a href="#hours" class="nav-link text-gray-800 hover:text-amber-500 font-medium">Hours</a></li>
+                    <li><a href="#contact" class="nav-link text-gray-800 hover:text-amber-500 font-medium">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="md:hidden">
+                <button class="text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div class="hidden md:block">
+                <a href="tel:+17017346465" class="bg-amber-500 hover:bg-amber-600 text-white py-2 px-4 rounded-lg font-medium transition duration-300 flex items-center">
+                    <i class="fas fa-phone-alt mr-2"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation (Hidden by default) -->
+    <div class="fixed inset-0 bg-gray-900 bg-opacity-95 z-50 hidden flex-col justify-center items-center" id="mobile-menu">
+        <button class="absolute top-6 right-6 text-white focus:outline-none">
+            <i class="fas fa-times text-3xl"></i>
+        </button>
+        <ul class="flex flex-col space-y-6 text-center">
+            <li><a href="#home" class="text-white text-2xl hover:text-amber-500 font-medium">Home</a></li>
+            <li><a href="#about" class="text-white text-2xl hover:text-amber-500 font-medium">About</a></li>
+            <li><a href="#menu" class="text-white text-2xl hover:text-amber-500 font-medium">Menu</a></li>
+            <li><a href="#hours" class="text-white text-2xl hover:text-amber-500 font-medium">Hours</a></li>
+            <li><a href="#contact" class="text-white text-2xl hover:text-amber-500 font-medium">Contact</a></li>
+        </ul>
+        <a href="tel:+17017346465" class="mt-10 bg-amber-500 hover:bg-amber-600 text-white py-3 px-6 rounded-lg font-medium transition duration-300 flex items-center text-xl">
+            <i class="fas fa-phone-alt mr-2"></i> Call Now: (701) 734-6465
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero flex items-center justify-center pt-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">SPORTSMEN'S BAR & GRILL</h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8">Wilton's Favorite Sports Bar & Grill Since 1995</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#menu" class="bg-amber-500 hover:bg-amber-600 text-white py-3 px-8 rounded-lg font-medium text-lg transition duration-300">
+                    View Our Menu
+                </a>
+                <a href="#contact" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white py-3 px-8 rounded-lg font-medium text-lg transition duration-300">
+                    Find Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">ABOUT US</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto"></div>
+            </div>
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
+                    <h3 class="text-2xl font-semibold mb-4">Welcome to Sportsmen's Bar & Grill</h3>
+                    <p class="text-gray-700 mb-4">Sportsmen's Bar & Grill has been serving the Wilton community since 1995. We're a casual bar and grill known for our delicious steaks, burgers, and friendly atmosphere. Whether you're looking to catch the game, enjoy a meal with friends, or just relax with a cold drink, we've got you covered.</p>
+                    <p class="text-gray-700 mb-6">Our casual and welcoming environment makes us the perfect spot for lunch, dinner, or late-night drinks. With multiple TVs throughout the establishment, you'll never miss a moment of your favorite sporting events.</p>
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-check-circle text-amber-500 mr-2"></i>
+                        <span class="text-gray-800">Delicious comfort food</span>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-check-circle text-amber-500 mr-2"></i>
+                        <span class="text-gray-800">Sports viewing on multiple screens</span>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-check-circle text-amber-500 mr-2"></i>
+                        <span class="text-gray-800">Daily food and drink specials</span>
+                    </div>
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-check-circle text-amber-500 mr-2"></i>
+                        <span class="text-gray-800">Friendly and attentive service</span>
+                    </div>
+                    <a href="#contact" class="inline-block bg-amber-500 hover:bg-amber-600 text-white py-3 px-6 rounded-lg font-medium transition duration-300">
+                        Visit Us Today
+                    </a>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://img.restaurantguru.com/cbde-Sportsman-Wilton-photo.jpg" alt="Sportsmen's Bar Interior" class="rounded-lg shadow-lg w-full h-64 object-cover">
+                        <img src="https://img.restaurantguru.com/cf8c-Sportsman-Wilton-interior.jpg" alt="Sportsmen's Bar and Grill" class="rounded-lg shadow-lg w-full h-64 object-cover">
+                        <img src="https://s3-media0.fl.yelpcdn.com/bphoto/1bmVYAkqIk3rdB6Cw3LXsg/348s.jpg" alt="Sportsmen's Bar Entrance" class="rounded-lg shadow-lg w-full h-64 object-cover">
+                        <img src="https://img.restaurantguru.com/r8df-Sportsman-interior-2021-08.jpg" alt="Sportsmen's Bar Interior" class="rounded-lg shadow-lg w-full h-64 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">OUR MENU</h2>
+                <p class="text-gray-700 max-w-3xl mx-auto">From juicy steaks to mouth-watering burgers and appetizers, our menu offers something for everyone. Pair your meal with one of our many beer options or a perfectly mixed cocktail.</p>
+                <div class="w-20 h-1 bg-amber-500 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="mb-16">
+                <h3 class="text-3xl font-semibold text-center mb-8">Menu Highlights</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Steaks Card -->
+                    <div class="menu-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/17/70/3b/7f/wilton-sportsman-s-bar.jpg" alt="Steaks" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2 text-gray-900">Steaks</h4>
+                            <p class="text-gray-700 mb-4">Our steaks are hand-selected, perfectly aged, and cooked to your preferred temperature.</p>
+                            <ul class="text-gray-600 mb-4">
+                                <li class="mb-1 flex items-start">
+                                    <i class="fas fa-utensils text-amber-500 mr-2 mt-1"></i>
+                                    <span><span class="font-medium">Ribeye Steak</span> - Juicy, marbled ribeye with your choice of sides</span>
+                                </li>
+                                <li class="mb-1 flex items-start">
+                                    <i class="fas fa-utensils text-amber-500 mr-2 mt-1"></i>
+                                    <span><span class="font-medium">NY Strip</span> - Tender strip steak seasoned to perfection</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-utensils text-amber-500 mr-2 mt-1"></i>
+                                    <span><span class="font-medium">Sirloin</span> - Lean and flavorful with house seasonings</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Burgers Card -->
+                    <div class="menu-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://img.restaurantguru.com/c605-Sportsman-Wilton-food.jpg" alt="Burgers" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2 text-gray-900">Burgers</h4>
+                            <p class="text-gray-700 mb-4">Our burgers are made with fresh ground beef, grilled to perfection, and served on a toasted bun.</p>
+                            <ul class="text-gray-600 mb-4">
+                                <li class="mb-1 flex items-start">
+                                    <i class="fas fa-hamburger text-amber-500 mr-2 mt-1"></i>
+                                    <span><span class="font-medium">Classic Cheeseburger</span> - With American cheese and all the fixings</span>
+                                </li>
+                                <li class="mb-1 flex items-start">
+                                    <i class="fas fa-hamburger text-amber-500 mr-2 mt-1"></i>
+                                    <span><span class="font-medium">Bacon Burger</span> - Topped with crispy bacon and cheddar</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-hamburger text-amber-500 mr-2 mt-1"></i>
+                                    <span><span class="font-medium">Mushroom Swiss</span> - Sautéed mushrooms and melted Swiss</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Appetizers Card -->
+                    <div class="menu-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://townsquare.media/site/505/files/2022/07/attachment-sportsmensbar.jpg" alt="Appetizers" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2 text-gray-900">Appetizers</h4>
+                            <p class="text-gray-700 mb-4">Perfect for sharing or starting your meal with a tasty treat.</p>
+                            <ul class="text-gray-600 mb-4">
+                                <li class="mb-1 flex items-start">
+                                    <i class="fas fa-drumstick-bite text-amber-500 mr-2 mt-1"></i>
+                                    <span><span class="font-medium">Wings</span> - Buffalo, BBQ, or dry-rubbed with ranch or blue cheese</span>
+                                </li>
+                                <li class="mb-1 flex items-start">
+                                    <i class="fas fa-drumstick-bite text-amber-500 mr-2 mt-1"></i>
+                                    <span><span class="font-medium">Loaded Nachos</span> - Topped with all your favorite fixings</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-drumstick-bite text-amber-500 mr-2 mt-1"></i>
+                                    <span><span class="font-medium">Curly Fries</span> - Seasoned and served with special dipping sauce</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Drinks Card -->
+                    <div class="menu-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://img.restaurantguru.com/c5b0-Sportsman-Wilton-image.jpg" alt="Drinks" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2 text-gray-900">Drinks</h4>
+                            <p class="text-gray-700 mb-4">Quench your thirst with our selection of beverages, from ice-cold beers to signature cocktails.</p>
+                            <ul class="text-gray-600 mb-4">
+                                <li class="mb-1 flex items-start">
+                                    <i class="fas fa-beer text-amber-500 mr-2 mt-1"></i>
+                                    <span><span class="font-medium">Domestic Beers</span> - A wide selection of your favorites</span>
+                                </li>
+                                <li class="mb-1 flex items-start">
+                                    <i class="fas fa-beer text-amber-500 mr-2 mt-1"></i>
+                                    <span><span class="font-medium">Craft Beers</span> - Rotating selection of local and regional brews</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-cocktail text-amber-500 mr-2 mt-1"></i>
+                                    <span><span class="font-medium">Cocktails</span> - Classic and signature mixed drinks</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <h3 class="text-2xl font-semibold mb-6">Daily Specials</h3>
+                <p class="text-gray-700 mb-6 max-w-3xl mx-auto">Don't miss our daily food and drink specials! From Wing Wednesday to Saturday Game Day specials featuring $0.50 wings, $2.50 domestic beers, and $2.50 well drinks.</p>
+                <p class="text-gray-700 mb-8 max-w-3xl mx-auto">Visit us on Saturdays for our famous Bloody Mary breakfast specials!</p>
+                <a href="tel:+17017346465" class="inline-block bg-amber-500 hover:bg-amber-600 text-white py-3 px-8 rounded-lg font-medium transition duration-300">
+                    Call For Today's Specials
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section id="hours" class="hours-container py-16 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">HOURS OF OPERATION</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto"></div>
+            </div>
+            <div class="max-w-3xl mx-auto bg-black bg-opacity-60 rounded-xl p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="hours-day p-4 border-b md:border-b-0 md:border-r border-gray-600">
+                        <h3 class="text-xl font-semibold mb-2">Monday</h3>
+                        <p class="text-gray-300">10:00 AM - 1:00 AM</p>
+                    </div>
+                    <div class="hours-day p-4 border-b border-gray-600">
+                        <h3 class="text-xl font-semibold mb-2">Tuesday</h3>
+                        <p class="text-gray-300">10:00 AM - 1:00 AM</p>
+                    </div>
+                    <div class="hours-day p-4 border-b md:border-b-0 md:border-r border-gray-600">
+                        <h3 class="text-xl font-semibold mb-2">Wednesday</h3>
+                        <p class="text-gray-300">10:00 AM - 1:00 AM</p>
+                    </div>
+                    <div class="hours-day p-4 border-b border-gray-600">
+                        <h3 class="text-xl font-semibold mb-2">Thursday</h3>
+                        <p class="text-gray-300">10:00 AM - 1:00 AM</p>
+                    </div>
+                    <div class="hours-day p-4 md:border-r border-gray-600">
+                        <h3 class="text-xl font-semibold mb-2">Friday</h3>
+                        <p class="text-gray-300">10:00 AM - 1:00 AM</p>
+                    </div>
+                    <div class="hours-day p-4">
+                        <h3 class="text-xl font-semibold mb-2">Saturday</h3>
+                        <p class="text-gray-300">10:00 AM - 1:00 AM</p>
+                    </div>
+                </div>
+                <div class="hours-day p-4 mt-4 border-t border-gray-600 text-center">
+                    <h3 class="text-xl font-semibold mb-2">Sunday</h3>
+                    <p class="text-gray-300">CLOSED</p>
+                </div>
+                <div class="mt-8 text-center">
+                    <p class="text-gray-300 mb-6">Kitchen closes one hour before bar closing time.</p>
+                    <a href="tel:+17017346465" class="inline-block bg-amber-500 hover:bg-amber-600 text-white py-3 px-8 rounded-lg font-medium transition duration-300">
+                        <i class="fas fa-phone-alt mr-2"></i> Call For Reservations
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">CONTACT US</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto"></div>
+            </div>
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0">
+                    <div class="bg-gray-100 p-8 rounded-xl shadow-md h-full">
+                        <h3 class="text-2xl font-semibold mb-6">Get In Touch</h3>
+                        <div class="flex items-start mb-6">
+                            <div class="bg-amber-500 text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium mb-1">Address</h4>
+                                <p class="text-gray-700">21 Dakota Ave, Wilton, ND 58579, United States</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-6">
+                            <div class="bg-amber-500 text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium mb-1">Phone</h4>
+                                <p class="text-gray-700">+1 701-734-6465</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-8">
+                            <div class="bg-amber-500 text-white p-3 rounded-full mr-4">
+                                <i class="far fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium mb-1">Business Hours</h4>
+                                <p class="text-gray-700">Monday - Saturday: 10:00 AM - 1:00 AM</p>
+                                <p class="text-gray-700">Sunday: Closed</p>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <a href="tel:+17017346465" class="bg-amber-500 hover:bg-amber-600 text-white py-3 px-8 rounded-lg font-medium transition duration-300 inline-flex items-center">
+                                <i class="fas fa-phone-alt mr-2"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="h-96 bg-gray-200 rounded-xl overflow-hidden shadow-md">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.4296651968607!2d-100.78393522338088!3d47.151764623799534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52d8236b10e4c26d%3A0xc1b94d8e94cda4ec!2sSportsmen&#39;s%20Bar%20and%20Grill!5e0!3m2!1sen!2sus!4v1712332744264!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <!-- Photo Gallery -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">PHOTO GALLERY</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://img.restaurantguru.com/cbde-Sportsman-Wilton-photo.jpg" alt="Restaurant Interior" class="w-full h-64 object-cover gallery-image">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://img.restaurantguru.com/cf8c-Sportsman-Wilton-interior.jpg" alt="Bar Area" class="w-full h-64 object-cover gallery-image">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://img.restaurantguru.com/r8df-Sportsman-interior-2021-08.jpg" alt="Dining Area" class="w-full h-64 object-cover gallery-image">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://img.restaurantguru.com/c605-Sportsman-Wilton-food.jpg" alt="Food" class="w-full h-64 object-cover gallery-image">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://s3-media0.fl.yelpcdn.com/bphoto/1bmVYAkqIk3rdB6Cw3LXsg/348s.jpg" alt="Restaurant Exterior" class="w-full h-64 object-cover gallery-image">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/17/70/3b/7f/wilton-sportsman-s-bar.jpg" alt="Steak" class="w-full h-64 object-cover gallery-image">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://img.restaurantguru.com/r125-Sportsman-exterior-2021-08.jpg" alt="Building Exterior" class="w-full h-64 object-cover gallery-image">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://townsquare.media/site/505/files/2022/07/attachment-sportsmensbar.jpg" alt="Bar Close-up" class="w-full h-64 object-cover gallery-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Section -->
+    <section class="contact-info py-20 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4">COME VISIT US TODAY!</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Experience the best food, drinks, and atmosphere in Wilton. We look forward to serving you!</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="tel:+17017346465" class="bg-amber-500 hover:bg-amber-600 text-white py-3 px-8 rounded-lg font-medium text-lg transition duration-300 flex items-center justify-center">
+                    <i class="fas fa-phone-alt mr-2"></i> (701) 734-6465
+                </a>
+                <a href="#contact" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white py-3 px-8 rounded-lg font-medium text-lg transition duration-300 flex items-center justify-center">
+                    <i class="fas fa-map-marker-alt mr-2"></i> Get Directions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-4 logo">SPORTSMEN'S</h3>
+                    <p class="text-gray-400 mb-4">Bar & Grill</p>
+                    <p class="text-gray-400">21 Dakota Ave, Wilton, ND 58579</p>
+                    <p class="text-gray-400">Phone: +1 701-734-6465</p>
+                </div>
+                <div class="mb-8 md:mb-0">
+                    <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-amber-500 transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-amber-500 transition duration-300">About</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-amber-500 transition duration-300">Menu</a></li>
+                        <li><a href="#hours" class="text-gray-400 hover:text-amber-500 transition duration-300">Hours</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-amber-500 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Business Hours</h4>
+                    <p class="text-gray-400 mb-2">Monday - Saturday: 10:00 AM - 1:00 AM</p>
+                    <p class="text-gray-400 mb-4">Sunday: Closed</p>
+                    <p class="text-gray-400 mb-4">Kitchen closes one hour before bar closing time.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 hover:bg-amber-500 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-amber-500 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-amber-500 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-8 text-center">
+                <p class="text-gray-500">© 2025 Sportsmen's Bar and Grill. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+                document.getElementById('mobile-menu').classList.remove('flex');
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.md\\:hidden button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuButton = document.querySelector('#mobile-menu button');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+        });
+        
+        closeMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+        });
+        
+        // Sticky header on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('sticky-header');
+            } else {
+                header.classList.remove('sticky-header');
+            }
+        });
+    </script>
+</body>
+</html>
