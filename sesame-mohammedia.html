@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sésame Restaurant - Lebanese & Moroccan Cuisine in Mohammedia</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            color: #333;
+        }
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://lh3.googleusercontent.com/p/AF1QipNJwLBe-ovPCdtG1kvZ3tqDKX1VxZ0Ig7sGcL8d=w600-h400-k-no');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+        }
+        .section-heading {
+            position: relative;
+        }
+        .section-heading:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: #e2703a;
+        }
+        .menu-item {
+            transition: transform 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e2703a;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .food-image {
+            height: 200px;
+            object-fit: cover;
+        }
+        .hours-day {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+        .gallery-img {
+            height: 220px;
+            object-fit: cover;
+        }
+        .testimonial {
+            background-color: #f8f8f8;
+            border-left: 4px solid #e2703a;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#home" class="flex items-center">
+                <span class="playfair text-2xl font-bold text-amber-800">Sésame</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 hover:text-amber-800 font-medium">Home</a>
+                <a href="#menu" class="nav-link text-gray-700 hover:text-amber-800 font-medium">Menu</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-amber-800 font-medium">About</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-amber-800 font-medium">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="pt-20">
+        <div class="hero flex items-center justify-center">
+            <div class="text-center text-white p-6">
+                <h1 class="playfair text-5xl md:text-6xl font-bold mb-4">Sésame Restaurant</h1>
+                <p class="text-xl md:text-2xl mb-8">Lebanese & Moroccan Cuisine</p>
+                <p class="text-lg md:text-xl mb-8 max-w-xl mx-auto">Where elegance meets unique flavors. Every dish, every detail is designed to offer you an unforgettable experience.</p>
+                <a href="#menu" class="bg-amber-800 hover:bg-amber-700 text-white font-medium py-3 px-8 rounded-full transition duration-300 inline-block">View Our Menu</a>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-16">
+            <div class="text-center mb-16">
+                <h2 class="playfair text-3xl md:text-4xl font-bold section-heading inline-block">Welcome to Sésame</h2>
+                <p class="mt-8 max-w-3xl mx-auto text-gray-600">Experience the authentic flavors of Lebanese and Moroccan cuisine in the heart of Mohammedia. Our restaurant offers a perfect blend of traditional recipes with modern presentation in a cozy and elegant atmosphere.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-amber-100 rounded-full">
+                        <i class="fas fa-utensils text-amber-800 text-2xl"></i>
+                    </div>
+                    <h3 class="playfair text-xl font-semibold mb-3">Authentic Cuisine</h3>
+                    <p class="text-gray-600">Discover the rich flavors of our Lebanese and Moroccan dishes, prepared with authentic recipes and finest ingredients.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-amber-100 rounded-full">
+                        <i class="fas fa-star text-amber-800 text-2xl"></i>
+                    </div>
+                    <h3 class="playfair text-xl font-semibold mb-3">4.8 Star Rating</h3>
+                    <p class="text-gray-600">Our restaurant is proud to maintain a 4.8-star rating with over 280 reviews from our satisfied customers.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-amber-100 rounded-full">
+                        <i class="fas fa-truck text-amber-800 text-2xl"></i>
+                    </div>
+                    <h3 class="playfair text-xl font-semibold mb-3">Free Delivery</h3>
+                    <p class="text-gray-600">Enjoy our delicious food in the comfort of your home with our free delivery service throughout Mohammedia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="playfair text-3xl md:text-4xl font-bold text-center section-heading mb-16">Our Menu</h2>
+
+            <!-- Menu Categories -->
+            <div class="flex flex-wrap justify-center mb-12">
+                <button class="menu-category-btn bg-amber-800 text-white py-2 px-6 rounded-full m-2">All</button>
+                <button class="menu-category-btn bg-white text-amber-800 border border-amber-800 py-2 px-6 rounded-full m-2">Entrées Froides</button>
+                <button class="menu-category-btn bg-white text-amber-800 border border-amber-800 py-2 px-6 rounded-full m-2">Entrées Chaudes</button>
+                <button class="menu-category-btn bg-white text-amber-800 border border-amber-800 py-2 px-6 rounded-full m-2">Viande et Grill</button>
+                <button class="menu-category-btn bg-white text-amber-800 border border-amber-800 py-2 px-6 rounded-full m-2">Sandwiches</button>
+                <button class="menu-category-btn bg-white text-amber-800 border border-amber-800 py-2 px-6 rounded-full m-2">Desserts</button>
+            </div>
+
+            <!-- Menu Items -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cold Appetizers -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://food.blk.ma/upload/1707744840-c0d98ab870bc242b2fed55bb490a05f4e993c31b7779f7a3c658056cb4fc30f7.jpg" alt="Assortiment de Mezzes Froids" class="w-full food-image">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="playfair text-xl font-semibold">Assortiment de Mezzes Froids</h3>
+                            <span class="text-amber-800 font-bold">98 DH</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Assortiment de trois houmous, baba ghanouj, fous moudammas; taboulé, chips d'aich</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">Entrées Froides</span>
+                            <button class="text-amber-800 hover:text-amber-700">
+                                <i class="fas fa-plus-circle"></i> Add to order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://food.blk.ma/upload/1707744776-62a3c77d5f47785800b958fd171190fbd2b453bba73683298eceedebaafa9d0d.jpg" alt="Kebbe" class="w-full food-image">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="playfair text-xl font-semibold">Kebbe</h3>
+                            <span class="text-amber-800 font-bold">39 DH</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Boulettes farcies de viande hachée et pignons de pin, sauce tahina</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">Entrées Chaudes</span>
+                            <button class="text-amber-800 hover:text-amber-700">
+                                <i class="fas fa-plus-circle"></i> Add to order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://food.blk.ma/upload/1707745049-2553d7a745574066842c92504a69a3502e76ffc36798402de8d1d2487749b96c.jpg" alt="Assiette Chawarma Poulet" class="w-full food-image">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="playfair text-xl font-semibold">Assiette Chawarma Poulet</h3>
+                            <span class="text-amber-800 font-bold">75 DH</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Emincé de poulet mariné et rôti à la broche</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">Viande et Grill</span>
+                            <button class="text-amber-800 hover:text-amber-700">
+                                <i class="fas fa-plus-circle"></i> Add to order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://food.blk.ma/upload/1707744734-fe87897a2cd53914f0e832051a8b401eda0a8414b249ababece7da76aed42a17.jpg" alt="Assortiment de Mezzes Chauds" class="w-full food-image">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="playfair text-xl font-semibold">Assortiment de Mezzes Chauds</h3>
+                            <span class="text-amber-800 font-bold">98 DH</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Assortiment samboussek 8 pieces, falafel 4 pieces, kebbe 4 pieces</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">Entrées Chaudes</span>
+                            <button class="text-amber-800 hover:text-amber-700">
+                                <i class="fas fa-plus-circle"></i> Add to order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://food.blk.ma/upload/1707744982-3ecee7ebd44bb9af4d59bc1297e58e8f55f6df9ff85605a71df488b65de9bb94.jpg" alt="Chawarma Poulet Sandwich" class="w-full food-image">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="playfair text-xl font-semibold">Chawarma Poulet Sandwich</h3>
+                            <span class="text-amber-800 font-bold">45 DH</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Pain oriental, salade verte, cornichons, tomate, poulet mariné rôti à la broche, sauce aux épices d'orient</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">Sandwiches</span>
+                            <button class="text-amber-800 hover:text-amber-700">
+                                <i class="fas fa-plus-circle"></i> Add to order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="playfair text-xl font-semibold">Kanafa</h3>
+                            <span class="text-amber-800 font-bold">30 DH</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Cheveux d'ange dorés au four, crème, pistache, amande et fleur d'oranger</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">Desserts</span>
+                            <button class="text-amber-800 hover:text-amber-700">
+                                <i class="fas fa-plus-circle"></i> Add to order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Download -->
+            <div class="text-center mt-12">
+                <a href="#" class="bg-amber-800 hover:bg-amber-700 text-white font-medium py-3 px-8 rounded-full transition duration-300 inline-block">
+                    <i class="fas fa-download mr-2"></i> Download Full Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-16 container mx-auto px-4">
+        <h2 class="playfair text-3xl md:text-4xl font-bold text-center section-heading mb-16">Food Gallery</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <img src="https://img.restaurantguru.com/r688-RESTAURANT-SESAME-MOHAMMEDIA-interior.jpg" alt="Restaurant Interior" class="gallery-img rounded-lg shadow-md">
+            <img src="https://food.blk.ma/upload/1707744840-c0d98ab870bc242b2fed55bb490a05f4e993c31b7779f7a3c658056cb4fc30f7.jpg" alt="Mezze Platter" class="gallery-img rounded-lg shadow-md">
+            <img src="https://food.blk.ma/upload/1707745049-2553d7a745574066842c92504a69a3502e76ffc36798402de8d1d2487749b96c.jpg" alt="Chawarma Plate" class="gallery-img rounded-lg shadow-md">
+            <img src="https://food.blk.ma/upload/1707744776-62a3c77d5f47785800b958fd171190fbd2b453bba73683298eceedebaafa9d0d.jpg" alt="Kebbe" class="gallery-img rounded-lg shadow-md">
+            <img src="https://food.blk.ma/upload/1707744734-fe87897a2cd53914f0e832051a8b401eda0a8414b249ababece7da76aed42a17.jpg" alt="Hot Mezze" class="gallery-img rounded-lg shadow-md">
+            <img src="https://food.blk.ma/upload/1707744982-3ecee7ebd44bb9af4d59bc1297e58e8f55f6df9ff85605a71df488b65de9bb94.jpg" alt="Sandwich" class="gallery-img rounded-lg shadow-md">
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="playfair text-3xl md:text-4xl font-bold text-center section-heading mb-16">What Our Guests Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-800">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"This is a restaurant that lives up to a reputation for quality. The Lebanese food is just the same as you would get in the levant, and the chef has put into preparing Moroccan dishes to a level of quality that's not typical in Morocco."</p>
+                    <div class="flex items-center">
+                        <div>
+                            <h4 class="font-medium">Malek Adon</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-800">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Great food and service. Tariq was excellent and accommodated my special requests. Overall highly recommended for well made arabic food."</p>
+                    <div class="flex items-center">
+                        <div>
+                            <h4 class="font-medium">Sami Khan</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-800">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Wonderful place, very cozy and charming. The food was just amazing. The owner did put a lot of thought into his menu and the restaurant's beautiful design. I am definitely coming back here."</p>
+                    <div class="flex items-center">
+                        <div>
+                            <h4 class="font-medium">Ibtissam IDRISSI</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="playfair text-3xl md:text-4xl font-bold text-center section-heading mb-16">About Us</h2>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2">
+                    <img src="https://img.restaurantguru.com/r688-RESTAURANT-SESAME-MOHAMMEDIA-interior.jpg" alt="Restaurant Interior" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <h3 class="playfair text-2xl font-semibold mb-6">Our Story</h3>
+                    <p class="text-gray-600 mb-4">At Sésame Restaurant, we are passionate about bringing the rich culinary traditions of Lebanon and Morocco to the heart of Mohammedia. Our journey began with a simple vision: to create a space where authentic flavors meet elegant dining.</p>
+                    <p class="text-gray-600 mb-4">Each dish on our menu is prepared with care using traditional recipes and the finest ingredients. Our chefs have mastered the art of blending spices and techniques from both Lebanese and Moroccan cuisines to create a unique dining experience.</p>
+                    <p class="text-gray-600">Our restaurant offers a warm and inviting atmosphere where every detail has been carefully considered to ensure your comfort. From the elegant interior design to the attentive service, we strive to make every visit memorable.</p>
+                    
+                    <div class="mt-8">
+                        <h3 class="playfair text-2xl font-semibold mb-6">Why Choose Us</h3>
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-check-circle text-amber-800 mr-3"></i>
+                            <span>Authentic Lebanese and Moroccan cuisine</span>
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-check-circle text-amber-800 mr-3"></i>
+                            <span>Premium quality ingredients</span>
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-check-circle text-amber-800 mr-3"></i>
+                            <span>Elegant and comfortable atmosphere</span>
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-check-circle text-amber-800 mr-3"></i>
+                            <span>Free delivery service</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-amber-800 mr-3"></i>
+                            <span>4.8-star rating with over 280 reviews</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="playfair text-3xl md:text-4xl font-bold text-center section-heading mb-16">Contact Us</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="playfair text-2xl font-semibold mb-6">Get in Touch</h3>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-start mb-6">
+                            <div class="w-10 h-10 flex items-center justify-center bg-amber-100 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-amber-800"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-1">Address</h4>
+                                <p class="text-gray-600">Rue Bourgogne, Mohammédia 28800, Morocco</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="w-10 h-10 flex items-center justify-center bg-amber-100 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-amber-800"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-1">Phone</h4>
+                                <p class="text-gray-600">+212 667-333459</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="w-10 h-10 flex items-center justify-center bg-amber-100 rounded-full mr-4">
+                                <i class="fas fa-clock text-amber-800"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-1">Opening Hours</h4>
+                                <div class="text-gray-600">
+                                    <div class="hours-day">
+                                        <span>Monday - Thursday:</span>
+                                        <span>12:00 PM - 11:00 PM</span>
+                                    </div>
+                                    <div class="hours-day">
+                                        <span>Friday - Sunday:</span>
+                                        <span>12:00 PM - 11:30 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-amber-100 rounded-full mr-4">
+                                <i class="fas fa-globe text-amber-800"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-1">Social Media</h4>
+                                <div class="flex space-x-4 mt-2">
+                                    <a href="https://www.facebook.com/profile.php?id=61550826437521" target="_blank" class="text-amber-800 hover:text-amber-700">
+                                        <i class="fab fa-facebook-f text-xl"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/sesamemohammedia/" target="_blank" class="text-amber-800 hover:text-amber-700">
+                                        <i class="fab fa-instagram text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="playfair text-2xl font-semibold mb-6">Send Us a Message</h3>
+                        <form class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 mb-2">Your Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 mb-2">Your Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                            </div>
+                            <button type="submit" class="bg-amber-800 hover:bg-amber-700 text-white font-medium py-2 px-6 rounded-md transition duration-300">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="playfair text-2xl font-semibold mb-6">Our Location</h3>
+                    <div class="bg-white p-2 rounded-lg shadow-md h-[600px]">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.6761891290224!2d-7.393168024891243!3d33.696788334767395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7b7a53902b94f%3A0x25f8d81d995bd1d7!2sS%C3%A9same%20Restaurant!5e0!3m2!1sen!2sus!4v1714222043913!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="playfair text-2xl font-semibold mb-6">Book a Table</h3>
+                        <form class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="mb-4">
+                                <label for="booking-name" class="block text-gray-700 mb-2">Your Name</label>
+                                <input type="text" id="booking-name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="booking-phone" class="block text-gray-700 mb-2">Your Phone</label>
+                                <input type="tel" id="booking-phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div class="mb-4 grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="booking-date" class="block text-gray-700 mb-2">Date</label>
+                                    <input type="date" id="booking-date" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                </div>
+                                <div>
+                                    <label for="booking-time" class="block text-gray-700 mb-2">Time</label>
+                                    <input type="time" id="booking-time" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="booking-guests" class="block text-gray-700 mb-2">Number of Guests</label>
+                                <select id="booking-guests" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 People</option>
+                                    <option value="3">3 People</option>
+                                    <option value="4">4 People</option>
+                                    <option value="5">5 People</option>
+                                    <option value="6">6 People</option>
+                                    <option value="7+">7+ People</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="booking-notes" class="block text-gray-700 mb-2">Special Requests</label>
+                                <textarea id="booking-notes" rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                            </div>
+                            <button type="submit" class="bg-amber-800 hover:bg-amber-700 text-white font-medium py-2 px-6 rounded-md transition duration-300">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Sésame Restaurant</h3>
+                    <p class="text-gray-400 mb-4">Experience the authentic flavors of Lebanese and Moroccan cuisine in the heart of Mohammedia.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61550826437521" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sesamemohammedia/" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-white">Menu</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-amber-600"></i>
+                            <span class="text-gray-400">Rue Bourgogne, Mohammédia 28800, Morocco</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-amber-600"></i>
+                            <span class="text-gray-400">+212 667-333459</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Opening Hours</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Monday - Thursday: 12:00 PM - 11:00 PM</li>
+                        <li class="text-gray-400">Friday - Sunday: 12:00 PM - 11:30 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center">
+                <p class="text-gray-400">&copy; 2025 Sésame Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Menu category selection
+        const categoryButtons = document.querySelectorAll('.menu-category-btn');
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('bg-amber-800', 'text-white');
+                    btn.classList.add('bg-white', 'text-amber-800', 'border', 'border-amber-800');
+                });
+                
+                this.classList.remove('bg-white', 'text-amber-800', 'border', 'border-amber-800');
+                this.classList.add('bg-amber-800', 'text-white');
+            });
+        });
+    </script>
+</body>
+</html>
