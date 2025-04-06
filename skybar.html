@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Bar Oriente | Rooftop Experience in Lisbon</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #c8a97e;
+            --light-color: #f5f5f5;
+            --dark-color: #16213e;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary-color);
+        }
+        
+        .bg-secondary {
+            background-color: var(--secondary-color);
+        }
+        
+        .text-primary {
+            color: var(--primary-color);
+        }
+        
+        .text-secondary {
+            color: var(--secondary-color);
+        }
+        
+        .border-secondary {
+            border-color: var(--secondary-color);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.skybarrooftop.com/wp-content/uploads/2025/01/SkybarOriente-110-1024x683.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(26, 26, 46, 0.9) !important;
+        }
+        
+        .menu-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.3s ease;
+        }
+        
+        .event-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #b6975d;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            padding: 10px 26px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .contact-info i {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(200, 169, 126, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--secondary-color);
+        }
+        
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b6975d;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* For PDF optimization */
+        @media print {
+            .container {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            
+            .hero {
+                height: auto;
+                min-height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar fixed top-0 w-full z-50 bg-transparent py-4 transition-all duration-300">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-white">
+                SKY<span class="text-secondary">BAR</span>
+            </a>
+            <div class="hidden lg:flex space-x-8">
+                <a href="#home" class="text-white hover:text-secondary transition duration-300">Home</a>
+                <a href="#about" class="text-white hover:text-secondary transition duration-300">About</a>
+                <a href="#menu" class="text-white hover:text-secondary transition duration-300">Menu</a>
+                <a href="#gallery" class="text-white hover:text-secondary transition duration-300">Gallery</a>
+                <a href="#events" class="text-white hover:text-secondary transition duration-300">Events</a>
+                <a href="#contact" class="text-white hover:text-secondary transition duration-300">Contact</a>
+            </div>
+            <button class="lg:hidden text-white text-2xl focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed top-0 left-0 w-full h-screen bg-primary z-50 flex flex-col items-center justify-center space-y-8 lg:hidden">
+        <button class="absolute top-6 right-6 text-white text-2xl focus:outline-none" id="menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#home" class="text-white text-xl hover:text-secondary transition duration-300 mobile-link">Home</a>
+        <a href="#about" class="text-white text-xl hover:text-secondary transition duration-300 mobile-link">About</a>
+        <a href="#menu" class="text-white text-xl hover:text-secondary transition duration-300 mobile-link">Menu</a>
+        <a href="#gallery" class="text-white text-xl hover:text-secondary transition duration-300 mobile-link">Gallery</a>
+        <a href="#events" class="text-white text-xl hover:text-secondary transition duration-300 mobile-link">Events</a>
+        <a href="#contact" class="text-white text-xl hover:text-secondary transition duration-300 mobile-link">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero flex items-center justify-center text-center">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">RISE ABOVE THE CITY</h1>
+                <p class="text-xl md:text-2xl text-white mb-8">Unmatched views and signature cocktails from the 16th floor</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#menu" class="btn-primary">Explore Menu</a>
+                    <a href="#contact" class="btn-outline">Reserve a Table</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold">Our Story</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mt-4">An elevated blend of unmatched views and contemporary mixology</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-4">Sky Bar Oriente Experience</h3>
+                    <p class="text-gray-600 mb-6">On the 16th floor of the Tivoli Oriente Lisboa Hotel, Sky Bar Oriente offers breathtakingly exclusive views of the River Tagus and Lisbon's modern skyline.</p>
+                    <p class="text-gray-600 mb-6">Whether unwinding after a long day or seeking a sophisticated spot for business lunches, you can rise above the routine with masterful signature cocktails, sushi and other international delights.</p>
+                    <p class="text-gray-600">Thanks to its central covered area, designed with cosmopolitan elegance, it has become a year-round must-visit destination in Lisbon.</p>
+                </div>
+                <div class="fade-in">
+                    <img src="https://www.skybarrooftop.com/wp-content/uploads/2025/01/DSC09622-1024x683.jpg" alt="Sky Bar Oriente Interior" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                </div>
+            </div>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md fade-in">
+                    <i class="fas fa-cocktail text-4xl text-secondary mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Signature Cocktails</h4>
+                    <p class="text-gray-600">Expertly crafted signature cocktails that blend local flavors with cosmopolitan trends.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md fade-in" style="transition-delay: 0.2s;">
+                    <i class="fas fa-utensils text-4xl text-secondary mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Exquisite Cuisine</h4>
+                    <p class="text-gray-600">Indulge in fresh sushi and international delights prepared with the highest standards.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md fade-in" style="transition-delay: 0.4s;">
+                    <i class="fas fa-mountain text-4xl text-secondary mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Panoramic Views</h4>
+                    <p class="text-gray-600">Experience breathtaking panoramic views of Lisbon and the Tagus River.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold">Our Menu</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mt-4">Elevate your senses with our signature cocktails and culinary delights</p>
+            </div>
+            
+            <!-- Menu Tabs -->
+            <div class="flex justify-center mb-10">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <button type="button" class="menu-tab active px-6 py-3 bg-white text-primary font-medium border border-secondary rounded-l-lg focus:outline-none" data-target="cocktails">
+                        Cocktails
+                    </button>
+                    <button type="button" class="menu-tab px-6 py-3 bg-white text-gray-600 font-medium border-t border-b border-r border-gray-300 focus:outline-none" data-target="food">
+                        Food
+                    </button>
+                    <button type="button" class="menu-tab px-6 py-3 bg-white text-gray-600 font-medium border-t border-b border-r border-gray-300 rounded-r-lg focus:outline-none" data-target="wines">
+                        Wines
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Cocktails Menu -->
+            <div id="cocktails-menu" class="menu-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden fade-in">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Signature Cocktail" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Lisbon Sunset</h4>
+                            <span class="text-secondary font-semibold">€14</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A refreshing blend of Portuguese gin, fresh citrus, passion fruit, and a hint of local herbs.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-fire-alt mr-2 text-secondary"></i>
+                            <span>Signature</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden fade-in" style="transition-delay: 0.1s;">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1582106245687-cbb466a9f07f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Tagus Breeze Cocktail" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Tagus Breeze</h4>
+                            <span class="text-secondary font-semibold">€12</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">White rum, coconut liqueur, pineapple juice, and a splash of blue curaçao.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-star mr-2 text-secondary"></i>
+                            <span>Popular</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden fade-in" style="transition-delay: 0.2s;">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560508179-b2c9a3f8e92b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Oriente Negroni" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Oriente Negroni</h4>
+                            <span class="text-secondary font-semibold">€15</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A creative twist on the classic with aged port wine, artisanal gin, and house-made bitters.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-fire-alt mr-2 text-secondary"></i>
+                            <span>Signature</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden fade-in" style="transition-delay: 0.3s;">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1536599424071-0b215a388ba7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Rooftop Mojito" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Rooftop Mojito</h4>
+                            <span class="text-secondary font-semibold">€13</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Premium white rum, fresh lime, mint leaves, sugar, and a splash of sparkling wine.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-leaf mr-2 text-secondary"></i>
+                            <span>Refreshing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden fade-in" style="transition-delay: 0.4s;">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568644396922-5c3bfae12521?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Skyline Martini" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Skyline Martini</h4>
+                            <span class="text-secondary font-semibold">€16</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Premium vodka, elderflower liqueur, fresh lemon juice, and a hint of lychee.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-glass-martini-alt mr-2 text-secondary"></i>
+                            <span>Elegant</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden fade-in" style="transition-delay: 0.5s;">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1609951651556-5334e2706168?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Berry Fizz" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Berry Fizz</h4>
+                            <span class="text-secondary font-semibold">€12</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Gin, fresh berry purée, lemon juice, rosemary-infused syrup, and soda water.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-leaf mr-2 text-secondary"></i>
+                            <span>Refreshing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Food Menu (Hidden Initially) -->
+            <div id="food-menu" class="menu-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sushi Platter" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Signature Sushi Platter</h4>
+                            <span class="text-secondary font-semibold">€24</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A selection of premium sushi including salmon, tuna, and avocado rolls with fresh wasabi.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-star mr-2 text-secondary"></i>
+                            <span>Chef's Recommendation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Tapas Selection" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Gourmet Tapas Selection</h4>
+                            <span class="text-secondary font-semibold">€18</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A variety of Spanish and Portuguese tapas including chorizo, manchego cheese, and olives.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-2 text-secondary"></i>
+                            <span>Sharing Plate</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1569058242567-93de6f36f8eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Truffle Fries" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Truffle & Parmesan Fries</h4>
+                            <span class="text-secondary font-semibold">€10</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Golden fries tossed with truffle oil, sea salt, and freshly grated parmesan cheese.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-fire-alt mr-2 text-secondary"></i>
+                            <span>Popular</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Seafood Ceviche" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Seafood Ceviche</h4>
+                            <span class="text-secondary font-semibold">€16</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Fresh seafood marinated in citrus juices with avocado, coriander, and a hint of chili.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-fish mr-2 text-secondary"></i>
+                            <span>Fresh Catch</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1615937657715-bc7b4b7962fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Prawn Tempura" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Prawn Tempura</h4>
+                            <span class="text-secondary font-semibold">€15</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Crispy tempura prawns served with a sweet chili dipping sauce and lime wedges.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-star mr-2 text-secondary"></i>
+                            <span>Chef's Recommendation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Charcuterie Board" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Artisan Charcuterie Board</h4>
+                            <span class="text-secondary font-semibold">€22</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A selection of premium cured meats, local cheeses, house pickles, and artisan breads.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-2 text-secondary"></i>
+                            <span>Sharing Plate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wines Menu (Hidden Initially) -->
+            <div id="wines-menu" class="menu-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="White Wine" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Vinho Verde</h4>
+                            <span class="text-secondary font-semibold">€8 / €38</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A crisp and refreshing white wine from northern Portugal with subtle citrus notes.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-wine-glass mr-2 text-secondary"></i>
+                            <span>Portuguese</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Red Wine" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Douro Red</h4>
+                            <span class="text-secondary font-semibold">€10 / €48</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A full-bodied red wine from the Douro Valley with rich fruit flavors and smooth tannins.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-wine-glass-alt mr-2 text-secondary"></i>
+                            <span>Portuguese</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1594144533403-077b81b1e0eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Rosé Wine" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Alentejo Rosé</h4>
+                            <span class="text-secondary font-semibold">€9 / €42</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A dry and elegant rosé wine with notes of red berries and a refreshing finish.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-wine-glass mr-2 text-secondary"></i>
+                            <span>Portuguese</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1606767521320-fb4dbc3b3cdf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Champagne" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Premium Champagne</h4>
+                            <span class="text-secondary font-semibold">€14 / €90</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">An elegant French champagne with fine bubbles, delicate aromas, and a long finish.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-glass-cheers mr-2 text-secondary"></i>
+                            <span>French</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1585935238141-8e84b290c5e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Porto Wine" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">10 Year Tawny Port</h4>
+                            <span class="text-secondary font-semibold">€12 / Glass</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A complex and rich port wine with notes of dried fruits, nuts, and caramel.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-star mr-2 text-secondary"></i>
+                            <span>Premium Portuguese</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1566633806327-68e152aaf26d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="White Wine" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-xl font-bold">Alvarinho</h4>
+                            <span class="text-secondary font-semibold">€11 / €52</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A premium white wine with intense aromas, mineral notes, and a complex structure.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-award mr-2 text-secondary"></i>
+                            <span>Award-winning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <p class="mb-6 text-gray-600">For the complete menu and daily specials, please visit us or contact us.</p>
+                <a href="#contact" class="btn-primary">Reserve a Table</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold">Our Gallery</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mt-4">Discover the atmosphere, views, and experiences that await at Sky Bar Oriente</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="gallery-item fade-in">
+                    <img src="https://www.skybarrooftop.com/wp-content/uploads/2025/01/SkybarOriente-110-1024x683.jpg" alt="Sky Bar Oriente View" class="w-full h-64 object-cover rounded-lg shadow-md">
+                </div>
+                <div class="gallery-item fade-in" style="transition-delay: 0.1s;">
+                    <img src="https://www.skybarrooftop.com/wp-content/uploads/2025/01/DSC09622-1024x683.jpg" alt="Sky Bar Interior" class="w-full h-64 object-cover rounded-lg shadow-md">
+                </div>
+                <div class="gallery-item fade-in" style="transition-delay: 0.2s;">
+                    <img src="https://www.skybarrooftop.com/wp-content/uploads/2025/01/SkyOriente_NovoEspaco-81-1024x683.jpg" alt="Lounge Area" class="w-full h-64 object-cover rounded-lg shadow-md">
+                </div>
+                <div class="gallery-item fade-in" style="transition-delay: 0.3s;">
+                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Signature Cocktail" class="w-full h-64 object-cover rounded-lg shadow-md">
+                </div>
+                <div class="gallery-item fade-in" style="transition-delay: 0.4s;">
+                    <img src="https://images.unsplash.com/photo-1608686207856-001b95cf60ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sushi Platter" class="w-full h-64 object-cover rounded-lg shadow-md">
+                </div>
+                <div class="gallery-item fade-in" style="transition-delay: 0.5s;">
+                    <img src="https://images.unsplash.com/photo-1616762159891-ce12dfa593cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Bar Counter" class="w-full h-64 object-cover rounded-lg shadow-md">
+                </div>
+                <div class="gallery-item fade-in" style="transition-delay: 0.6s;">
+                    <img src="https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Evening Atmosphere" class="w-full h-64 object-cover rounded-lg shadow-md">
+                </div>
+                <div class="gallery-item fade-in" style="transition-delay: 0.7s;">
+                    <img src="https://images.unsplash.com/photo-1517638083100-3f5eb3055a8d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Lisbon Skyline View" class="w-full h-64 object-cover rounded-lg shadow-md">
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="https://www.instagram.com/skybaroriente/" target="_blank" class="btn-outline">
+                    <i class="fab fa-instagram mr-2"></i> Follow Us on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold">Events & Happenings</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mt-4">Join us for special events, DJ nights, and exclusive experiences</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="event-card bg-white rounded-lg shadow-md overflow-hidden fade-in">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sunset Sessions" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 bg-secondary text-white px-4 py-2">
+                            Every Friday
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Sunset Sessions</h4>
+                        <p class="text-gray-600 mb-4">Enjoy live DJ sets as the sun sets over Lisbon, with special cocktail offers and an unforgettable atmosphere.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="far fa-clock mr-2 text-secondary"></i>
+                            <span>6:00 PM - 9:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-card bg-white rounded-lg shadow-md overflow-hidden fade-in" style="transition-delay: 0.2s;">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1556035511-3168381ea4d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sushi Masterclass" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 bg-secondary text-white px-4 py-2">
+                            Monthly Event
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Sushi Masterclass</h4>
+                        <p class="text-gray-600 mb-4">Learn the art of sushi making from our expert chefs, followed by a tasting session with paired cocktails.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="far fa-calendar-alt mr-2 text-secondary"></i>
+                            <span>First Saturday of each month</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-card bg-white rounded-lg shadow-md overflow-hidden fade-in" style="transition-delay: 0.4s;">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1602631985686-1bb0e6a8bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Cocktail Workshop" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 bg-secondary text-white px-4 py-2">
+                            Special Event
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Mixology Masterclass</h4>
+                        <p class="text-gray-600 mb-4">Discover the secrets of craft cocktail making with our award-winning mixologists in this hands-on workshop.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="far fa-calendar-alt mr-2 text-secondary"></i>
+                            <span>Check our social media for dates</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white rounded-lg shadow-md overflow-hidden fade-in">
+                <div class="md:flex">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Private Events" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-1/2 p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold mb-4">Private Events & Celebrations</h3>
+                        <p class="text-gray-600 mb-6">Sky Bar Oriente offers an exceptional venue for private events, corporate gatherings, and special celebrations. With breathtaking views, customizable menus, and attentive service, we ensure your event is truly memorable.</p>
+                        <ul class="mb-6 text-gray-600">
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-secondary mr-2"></i>
+                                Corporate events and product launches
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-secondary mr-2"></i>
+                                Birthday celebrations and anniversaries
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-secondary mr-2"></i>
+                                Engagement parties and intimate weddings
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-secondary mr-2"></i>
+                                Customized experiences and packages
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn-primary self-start">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold">Contact Us</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mt-4">Reach out for reservations, inquiries, or to plan your special event</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <h3 class="text-2xl font-bold mb-6">Get In Touch</h3>
+                        
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 mb-2">Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="fade-in" style="transition-delay: 0.2s;">
+                    <div class="bg-white rounded-lg shadow-md p-8 h-full flex flex-col">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6 flex-grow">
+                            <div class="contact-info flex items-start">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold mb-1">Address</h4>
+                                    <p class="text-gray-600">Av. Dom João II 27, 1990-083 Lisboa, Portugal</p>
+                                    <p class="text-gray-600 mt-1">16th floor of the Tivoli Oriente Lisboa Hotel</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info flex items-start">
+                                <i class="fas fa-phone-alt"></i>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold mb-1">Phone</h4>
+                                    <p class="text-gray-600">+351 933 003 130</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info flex items-start">
+                                <i class="far fa-clock"></i>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold mb-1">Opening Hours</h4>
+                                    <p class="text-gray-600">Monday - Sunday: 12:30 PM - 1:00 AM</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold mb-3">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.instagram.com/skybaroriente/" target="_blank" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/skybaroriente/" target="_blank" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition duration-300">
+                                    <i class="fab fa-tripadvisor"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white rounded-lg shadow-md overflow-hidden fade-in">
+                <div class="h-96">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3110.955401388584!2d-9.100503924382155!3d38.76664397949127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x295171c3445c83ab!2sSky%20Bar%20Oriente!5e0!3m2!1sen!2sus!4v1712406826025!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">SKY<span class="text-secondary">BAR</span></h3>
+                    <p class="text-gray-400 mb-6">An elevated blend of unmatched views and contemporary mixology on the 16th floor of the Tivoli Oriente Lisboa Hotel.</p>
+                    <p class="text-gray-400">Rise above the city and enjoy breathtaking views.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-secondary transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-secondary transition duration-300">About Us</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-secondary transition duration-300">Menu</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-secondary transition duration-300">Gallery</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-secondary transition duration-300">Events</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-secondary transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-secondary"></i>
+                            <span class="text-gray-400">Av. Dom João II 27, 1990-083 Lisboa, Portugal</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-secondary"></i>
+                            <span class="text-gray-400">+351 933 003 130</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="far fa-clock mt-1 mr-3 text-secondary"></i>
+                            <span class="text-gray-400">Mon-Sun: 12:30 PM - 1:00 AM</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for exclusive offers and updates.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full focus:outline-none rounded-l-lg">
+                        <button type="submit" class="bg-secondary text-white px-4 rounded-r-lg hover:bg-opacity-90 transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="https://www.instagram.com/skybaroriente/" target="_blank" class="text-gray-400 hover:text-secondary transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/skybaroriente/" target="_blank" class="text-gray-400 hover:text-secondary transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-secondary transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-secondary transition duration-300">
+                            <i class="fab fa-tripadvisor"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 Sky Bar Oriente. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-secondary transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition duration-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.add('open');
+        });
+        
+        menuClose.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+        });
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+            });
+        });
+        
+        // Menu tabs
+        const menuTabs = document.querySelectorAll('.menu-tab');
+        const menuContents = document.querySelectorAll('.menu-content');
+        
+        menuTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                menuTabs.forEach(t => {
+                    t.classList.remove('active', 'text-primary', 'border-secondary');
+                    t.classList.add('text-gray-600', 'border-gray-300');
+                });
+                
+                // Add active class to clicked tab
+                this.classList.add('active', 'text-primary', 'border-secondary');
+                this.classList.remove('text-gray-600', 'border-gray-300');
+                
+                // Hide all menu contents
+                menuContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Show the corresponding menu content
+                const target = this.getAttribute('data-target');
+                document.getElementById(`${target}-menu`).classList.remove('hidden');
+            });
+        });
+        
+        // Fade-in animations
+        function fadeIn() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                
+                // Check if element is in viewport
+                if (elementTop < window.innerHeight - 100 && elementBottom > 0) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initial check for elements in viewport
+        fadeIn();
+        
+        // Check on scroll
+        window.addEventListener('scroll', fadeIn);
+    </script>
+</body>
+</html>
